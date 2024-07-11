@@ -347,7 +347,7 @@ class KitchenTimerMenuItem extends PopupMenu.PopupMenuItem {
     // m m4 "0",
     // s m5 "120"
 
-    var re = /^((\d+):)?((\d+):)?(\d+)$/;
+    var re = /^((\d+)[:,.])?((\d+)[:,.])?(\d+)$/;
     var m = re.exec(parse.entry);
     if (m) {
       logger.debug("matched in re_hms");
@@ -374,7 +374,7 @@ class KitchenTimerMenuItem extends PopupMenu.PopupMenuItem {
   // well formed, name HH:MM:SS
   static re_name_hms(parse) {
     //var re = /^(?<name>.*?)\s+(?<t1>\d+):(?<t2>[\d]+):(?<t3>\d+)$/;
-    var re = /^(.*?)\s+(\d+):(\d+):(\d+)$/;
+    var re = /^(.*?)\s+(\d+)[:,.](\d+)[:,.](\d+)$/;
     var m = re.exec(parse.entry);
     if (m) {
       logger.debug("matched in re_name_hms");
@@ -397,7 +397,7 @@ class KitchenTimerMenuItem extends PopupMenu.PopupMenuItem {
   // name
   static re_wildcard(parse) {
     //var re = /(?<name>([^\s]+\s)*?)?(?<t1>\d+)?\s*:?\s*(?<t2>[\d]+)?\s*:?\s*(?<t3>\d+)?$/;
-    var re = /(([^\s]+\s)*?)?(\d+)?\s*:?\s*([\d]+)?\s*:?\s*(\d+)?$/;
+    var re = /(([^\s]+\s)*?)?(\d+)?\s*[:,.]?\s*([\d]+)?\s*[:,.]?\s*(\d+)?$/;
     var m=re.exec(parse.entry+' ');
     if (m) {
       //var g=m.groups;
